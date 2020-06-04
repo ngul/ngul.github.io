@@ -11,10 +11,6 @@ Primary use:
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
-@font-face {
-  font-family: PlayfairDisplay-BlackItalic;
-  src: url('../fonts/PlayfairDisplay/PlayfairDisplay-BlackItalic.ttf'); 
-}
 
 @font-face {
   font-family: Poppins-Regular;
@@ -22,9 +18,26 @@ Primary use:
 }
 
 @font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/Poppins/Poppins-Medium.ttf'); 
+  font-family: Poppins-Light;
+  src: url('../fonts/Poppins/Poppins-Light.ttf'); 
 }
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/Poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: PlayfairDisplay-Regular;
+  src: url('../fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: PlayfairDisplay-Italic;
+  src: url('../fonts/PlayfairDisplay/PlayfairDisplay-Italic.ttf'); 
+}
+
+
 
 /*//////////////////////////////////////////////////////////////////
 [ RS PLUGIN ]*/
@@ -32,43 +45,76 @@ Primary use:
 .container {max-width: 1200px;}
 
 
+
 /*//////////////////////////////////////////////////////////////////
 [ Form ]*/
 .contact100-form {
-  max-width: 100%;
+  width: 100%;
 }
+
 /*------------------------------------------------------------------
 [ Input ]*/
 
 .wrap-input100 {
   width: 500px;
-  max-width: 100%;
+  max-width: calc(100% - 10px);
   position: relative;
   background-color: transparent;
-  height: 80px;
+  height: 50px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 25px;
 }
 
 /*---------------------------------------------*/
 .input100 {
   display: block;
   width: 100%;
-  height: 100%;
-  padding: 0 90px 0 35px;
-  background-color: #fff;
-
-  box-shadow: 0 10px 15px 0px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0 10px 15px 0px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 10px 15px 0px rgba(0,0,0,0.1);
-  -o-box-shadow: 0 10px 15px 0px rgba(0,0,0,0.1);
-  -ms-box-shadow: 0 10px 15px 0px rgba(0,0,0,0.1);
+  background: transparent;
 }
 
-.input100:focus {
-  box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
-  -webkit-box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
-  -o-box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
-  -ms-box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
+input.input100 {
+  height: 100%;
+  padding: 0 38px 0 38px;
+}
+
+
+/*------------------------------------------------------------------
+[ Focus Input ]*/
+
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  top: -2px;
+  left: -2px;
+  pointer-events: none;
+  border: 2px solid #4272d7;
+  border-radius: 25px;
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  -webkit-transform: scaleX(1.1) scaleY(1.2);
+  -moz-transform: scaleX(1.1) scaleY(1.2);
+  -ms-transform: scaleX(1.1) scaleY(1.2);
+  -o-transform: scaleX(1.1) scaleY(1.2);
+  transform: scaleX(1.1) scaleY(1.2);
+}
+
+.input100:focus + .focus-input100 {
+  visibility: visible;
+  opacity: 1;
+
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
 }
 
 
@@ -85,7 +131,7 @@ Primary use:
   max-width: 70%;
   background-color: #fff;
   border: 1px solid #c80000;
-  border-radius: 0px;
+  border-radius: 15px;
   padding: 4px 25px 4px 10px;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -93,10 +139,10 @@ Primary use:
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  right: 82px;
+  right: 12px;
   pointer-events: none;
 
-  font-family: Poppins-Medium;
+  font-family: Poppins-Regular;
   color: #c80000;
   font-size: 14px;
   line-height: 1.4;
@@ -124,7 +170,7 @@ Primary use:
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  right: 88px;
+  right: 18px;
 }
 
 .alert-validate:hover:before {
@@ -140,33 +186,6 @@ Primary use:
 }
 
 
-/*//////////////////////////////////////////////////////////////////
-[ Simple slide100 ]*/
-.simpleslide100-parent {
-  position: relative;
-  z-index: 1;
-}
-
-.simpleslide100 {
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.simpleslide100-item {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-
 
 /*==================================================================
     TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
@@ -175,22 +194,18 @@ Primary use:
 /*==================================================================
 [ Color ]*/
 .cl0 {color: #fff;}
-.cl1 {color: #333;}
 
 
 
 
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
-
-/*---------------------------------------------*/
-.s2-txt1 {
-  font-family: Poppins-Medium;
+.s1-txt1 {
+  font-family: Poppins-Regular;
   font-size: 15px;
-  color: #333;
+  color: #fff;
   line-height: 1.2;
 }
-
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -198,21 +213,34 @@ Primary use:
 
 /*---------------------------------------------*/
 .m2-txt1 {
-  font-family: Poppins-Regular;
-  font-size: 24px;
-  color: #999;
+  font-family: PlayfairDisplay-Regular;
+  font-size: 25px;
+  color: #fff;
   line-height: 1.2;
 }
 
-
+.m2-txt2 {
+  font-family: PlayfairDisplay-Italic;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ L-Text >= 26 ]*/
 .l1-txt1 {
-  font-family: PlayfairDisplay-BlackItalic;
-  font-size: 90px;
-  color: #333;
-  line-height: 1.1;
+  font-family: Poppins-Bold;
+  font-size: 48px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.l1-txt2 {
+  font-family: Poppins-Light;
+  font-size: 70px;
+  color: #fff;
+  line-height: 1;
 }
 
 
@@ -227,24 +255,23 @@ Primary use:
 }
 
 .size2 {
-  width: 90px;
-  height: 80px;
+  min-width: 160px;
+  height: 50px;
 }
 
-.size3 {
-  width: 36px;
-  height: 36px;
-}
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Width ]*/
 .wsize1 {
-  width: 50%;
+  max-width: 100%;
+  width: 790px;
 }
 
 .wsize2 {
-  max-width: 100%;
+  width: 100px;
 }
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Height ]*/
@@ -255,6 +282,7 @@ Primary use:
 /*//////////////////////////////////////////////////////////////////
 [ Background ]*/
 .bg0 {background-color: #fff;}
+.bg1 {background-color: rgba(255,255,255,0.8);}
 
 .bg-img1 {
   background-position: center;
@@ -267,7 +295,9 @@ Primary use:
 
 /*//////////////////////////////////////////////////////////////////
 [ Border ]*/
-
+.bor1 {
+  border: 2px solid rgba(255,255,255,0.35);
+}
 
 
 
@@ -275,24 +305,41 @@ Primary use:
 /*==================================================================
    WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE  
 ==================================================================*/
-
-
+.where1 {
+  margin: 20px 5px 0px 5px;
+}
 
 
 /*==================================================================
  HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW 
 ==================================================================*/
-.placeholder0::-webkit-input-placeholder { color: #999999;}
-.placeholder0:-moz-placeholder { color: #999999;}
-.placeholder0::-moz-placeholder { color: #999999;}
-.placeholder0:-ms-input-placeholder { color: #999999;}
-
+.placeholder0::-webkit-input-placeholder { color: #fff;}
+.placeholder0:-moz-placeholder { color: #fff;}
+.placeholder0::-moz-placeholder { color: #fff;}
+.placeholder0:-ms-input-placeholder { color: #fff;}
 
 /*---------------------------------------------*/
 .overlay1 {
   position: relative;
   z-index: 1;
 }
+.overlay1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #61045f;
+  background: -webkit-linear-gradient(bottom, #aa076b, #61045f);
+  background: -o-linear-gradient(bottom, #aa076b, #61045f);
+  background: -moz-linear-gradient(bottom, #aa076b, #61045f);
+  background: linear-gradient(bottom, #aa076b, #61045f);
+  opacity: 0.9;
+}
+
 .overlay1::after {
   content: "";
   display: block;
@@ -302,42 +349,22 @@ Primary use:
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.2);
 }
 
 /*---------------------------------------------*/
-.wrappic1 {
-  display: block;
-}
-
-.wrappic1 img {
-  max-width: 100%;
-}
-
-/*---------------------------------------------*/
-.how-btn1 {
-  padding: 0 15px;
-  background-color: #fff;
+.how-btn {
+  padding: 0 20px;
+  background-color: #4272d7;
   border-radius: 25px;
 }
 
-.how-btn1:hover {
-  background-color: #555555;
-  color: #fff;
+.how-btn:hover {
+  background-color: #fff;
+  color: #4272d7;
 }
 
-/*---------------------------------------------*/
-.how-social {
-  color: #fff;
-  font-size: 22px;
-  background-color: #ccc;
-  border-radius: 50%;
-}
 
-.how-social:hover {
-  background-color: #333;
-  color: #fff;
-}
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -357,13 +384,7 @@ Primary use:
 .hov-bg0:hover {background-color: #fff;}
 
 /*---------------------------------------------*/
-.hov1:hover i {
-  -webkit-transform: translateX(10px);
-  -moz-transform: translateX(10px);
-  -ms-transform: translateX(10px);
-  -o-transform: translateX(10px);
-  transform: translateX(10px);
-}
+
 
 
 
@@ -397,14 +418,6 @@ Primary use:
   .w-full-xl {width: 100%;}
 
   /*---------------------------------------------*/
-  .respon1 {
-    width: 60%;
-  }
-
-  /*---------------------------------------------*/
-  .respon2 {
-    width: 40%;
-  }
 
 }
 
@@ -412,7 +425,6 @@ Primary use:
 /*//////////////////////////////////////////////////////////////////
 [ LG ]*/
 @media (max-width: 992px) {
-  .dis-none-lg {display: none;}
   .m-0-lg {margin: 0;}
   .m-lr-0-lg {margin-left: 0; margin-right: 0;}
   .m-lr-15-lg {margin-left: 15px; margin-right: 15px;}
@@ -432,17 +444,6 @@ Primary use:
   .w-full-lg {width: 100%;}
 
   /*---------------------------------------------*/
-  .respon1 {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  /*---------------------------------------------*/
-  .respon2 {
-    width: 100%;
-    height: 500px;
-  }
 
 
 }
@@ -468,7 +469,18 @@ Primary use:
   .p-r-15-md {padding-right: 15px;}
 
   .w-full-md {width: 100%;}
+
   /*---------------------------------------------*/
+  .respon1 {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .respon2 {
+    display: none;
+  }
 
 }
 
@@ -476,7 +488,6 @@ Primary use:
 /*//////////////////////////////////////////////////////////////////
 [ SM ]*/
 @media (max-width: 576px) {
-  .dis-none-sm {display: none;}
   .m-0-sm {margin: 0;}
   .m-lr-0-sm {margin-left: 0; margin-right: 0;}
   .m-lr-15-sm {margin-left: 15px; margin-right: 15px;}
@@ -496,10 +507,6 @@ Primary use:
   .w-full-sm {width: 100%;}
 
   /*---------------------------------------------*/
-  .respon3 {
-    font-size: 60px;
-  }
-
   
 }
 
